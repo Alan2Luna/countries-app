@@ -1,6 +1,7 @@
+import { Header } from './components/Header'
 
 export function CountriesApp() {
     return(
-        <div>Hola mundo</div>
+        <Header />
     )
 }
