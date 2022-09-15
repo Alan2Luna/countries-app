@@ -1,11 +1,11 @@
 import { MoonIcon } from '../assets/icons/MoonIcon'
-import Styles from '../styles/button.module.css'
+import Styles from '../styles/components/button.module.css'
 
 export function Button() {
     return(
-        <button className={ Styles["header__button"]}>
+        <button className={ Styles["button"]}>
             <MoonIcon />
-            <span className={ Styles["header__text_button"]}>dark mode</span>
+            <span className={ Styles["text_button"]}>dark mode</span>
         </button>
     )
 }

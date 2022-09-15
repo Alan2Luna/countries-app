@@ -1,4 +1,4 @@
-.header__button {
+.button {
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 
-.header__text_button {
+.text_button {
     font-weight: 700;
     font-family: "Nunito Sans";
     font-size: 1.2rem;
@@ -17,15 +17,15 @@
 
 @media screen and (min-width: 768px) {
 
-    .header__text_button {
+    .text_button {
         font-size: 1.5rem;
     }
 
 }
 
 @media screen and (min-width: 1440px) {
-    
-    .header__text_button {
+
+    .text_button {
         font-size: 1.6rem;
     }
 
