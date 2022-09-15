@@ -1,0 +1,39 @@
+.country {
+    width: 264px;
+    height: 340px;
+    list-style: none;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--element-clr);
+}
+
+.country__flag_container {
+    width: 100%;
+    height: 160px;
+}
+
+.country__flag {
+    display: block;
+    width: 100%;
+}
+
+.country__description {
+    padding: 2.5rem;
+}
+
+.country__name {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.5rem;;
+}
+
+.country__info {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.country__data {
+    font-weight: 300;
+    text-transform: capitalize;
+}
