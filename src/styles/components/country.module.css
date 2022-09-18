@@ -23,11 +23,19 @@
     padding: 2.5rem;
 }
 
+.country__info_line {
+    line-height: 1.5rem;
+}
+
+.country__description > .country__info_line:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
 .country__name {
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 1.5rem;;
+    margin-bottom: 2rem;;
 }
 
 .country__info {

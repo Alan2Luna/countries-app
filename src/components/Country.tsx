@@ -20,17 +20,17 @@ export function Country({ name, flag, population, region, capital }: Props) {
             </div>
             <div className={ Styles['country__description'] }>
                 <h2 className={ Styles['country__name'] }>{ name }</h2>
-                <div className="country__info_line">
+                <div className={ Styles["country__info_line"] }>
                     <span className={ Styles['country__info'] }>population: </span>
-                    <span className={ Styles['country__data'] } data-testid="country_name">{ population }</span>
+                    <span className={ Styles['country__data'] }>{ population }</span>
                 </div>
-                <div className="country__info_line">
+                <div className={ Styles["country__info_line"] }>
                     <span className={ Styles['country__info'] }>region: </span>
-                    <span className={ Styles['country__data'] } data-testid="country_region">{ region }</span>
+                    <span className={ Styles['country__data'] }>{ region }</span>
                 </div>
-                <div className="country__info_line">
+                <div className={ Styles["country__info_line"] }>
                     <span className={ Styles['country__info'] }>capital: </span>
-                    <span className={ Styles['country__data'] } data-testid="country_capital">{ capital }</span>
+                    <span className={ Styles['country__data'] }>{ capital }</span>
                 </div>
             </div>
         </li>
