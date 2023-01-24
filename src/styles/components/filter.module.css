@@ -1,0 +1,29 @@
+.filter__container {
+    width: 200px;
+    height: 48px;
+    background-color: var(--element-clr);
+    border-radius: 5px;
+    position: relative;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: var(--text-clr);
+    font-family: 'Nunito Sans';
+    font-weight: 600;
+}
+
+
+@media screen and (min-width: 768px) {
+    .filter__container {
+        height: 55px;
+    }
+}

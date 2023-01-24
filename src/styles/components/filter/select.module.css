@@ -1,0 +1,38 @@
+.select {
+    width: 200px;
+    height: 48px;
+    position: relative;
+    box-shadow: 0px 0px 10px 0 var(--box-shadow-clr);
+}
+
+.button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--element-clr);
+}
+
+.button__title {
+    color: var(--text-clr);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.container__option {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    padding: 10px 0;
+    border-radius: 5px;
+    background-color: var(--element-clr);
+}
+
+@media screen and (min-width: 768px) {
+    .select {
+        height: 55px;
+    }
+}

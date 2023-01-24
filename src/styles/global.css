@@ -32,9 +32,23 @@
   --text-clr: hsl(200, 15%, 8%); /* light mode */
   --background-clr: hsl(0, 0%, 98%); /* Light mode */
   --element-clr: hsl(0, 0%, 100%);
-  --input-clr: hsl(0, 0%, 52%);
+  --input-text-clr: hsl(0, 0%, 52%);
+  --box-shadow-clr: hsl(0, 16%, 93%);
+  --bg-options-clr: hsl(0deg 0% 5% / 5%);;
+}
+
+[data-theme='dark'] {
+--background-clr: hsl(207, 26%, 17%);
+--element-clr: hsl(209, 23%, 22%);
+--text-clr: hsl(0, 0%, 100%);
+--input-text-clr: hsl(0, 0%, 100%);
+--box-shadow-clr: none;
+--bg-options-clr: hsl(208deg 24% 30%);
 }
 /*
+--background-clr: hsl(207, 26%, 17%)
+--element-clr: hsl(209, 23%, 22%)
+--text-clr: hsl(0, 0%, 100%) white
 
 ### Body Copy
 
@@ -56,6 +70,35 @@ body {
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
   font-size: 1.4rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input[type=text] {
+  border: none;
+  outline: none;
+}
+
+button {
+  border: none;
+  background: inherit;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
 }
 
 @media (prefers-color-scheme: light) {

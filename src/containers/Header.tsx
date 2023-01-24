@@ -1,7 +1,9 @@
 import { Button } from '../components/Button'
+
 import Styles from '../styles/containers/header.module.css'
 
 export function Header() {
+
     return(
         <header className={ Styles.header }>
             <div className={ Styles["header__container"] }>
@@ -10,4 +12,5 @@ export function Header() {
             </div>
         </header>
     )
+    
 }

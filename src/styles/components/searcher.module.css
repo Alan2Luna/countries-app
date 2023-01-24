@@ -1,0 +1,33 @@
+.searcher {
+    display: flex;
+    width: 100%;
+    max-width: 478px;
+    height: 45px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--element-clr);
+}
+
+.searcher__button {
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+.searcher__input {
+    width: 70%;
+    background-color: inherit;
+    font-family: 'Nunito Sans';
+    font-size: 1.5rem;
+    color: var(--input-text-clr);
+}
+
+.searcher__input::placeholder {
+    color: var(--input-text-clr);
+    font-weight: 300;
+}
+
+@media screen and (min-width: 768px) {
+    .searcher {
+        height: 55px;
+    }
+}

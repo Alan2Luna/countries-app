@@ -1,0 +1,18 @@
+.option {
+    position: relative;
+    padding: 5px 28px;
+    color: var(--text-clr);
+    cursor: pointer;
+}
+
+.input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.option:hover {
+    background-color: var(--bg-options-clr);
+    /*background-color: hsl(0deg 0% 5% / 5%);*/
+}

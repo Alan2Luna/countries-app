@@ -1,38 +1,44 @@
+import { useRef } from 'react'
+import { Flag } from './Flag';
+import { Country as ICountry } from '../interfaces/Country';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { Link } from "react-router-dom"
+
 import Styles from '../styles/components/country.module.css'
 
-type Props = {
-    name: string;
-    flag: string;
-    population: string;
-    region: string;
-    capital: string;
-}
+export function Country(country: ICountry) {
 
-export function Country({ name, flag, population, region, capital }: Props) {
+    const elementRoot = useRef<HTMLLIElement | null>(null)
+    const isView = useIntersectionObserver( elementRoot )
+    
     return(
-        <li className={ Styles.country } data-testid="country">
-            <div className={ Styles['country__flag_container'] }>
-                <img 
-                    className={ Styles['country__flag'] }
-                    src={ flag } 
-                    alt={ `flag of ${ name }` } 
-                />
-            </div>
-            <div className={ Styles['country__description'] }>
-                <h2 className={ Styles['country__name'] }>{ name }</h2>
-                <div className={ Styles["country__info_line"] }>
-                    <span className={ Styles['country__info'] }>population: </span>
-                    <span className={ Styles['country__data'] }>{ population }</span>
+        <Link to={`/${country.name.common}`}>
+            <li ref={ elementRoot } className={ Styles.country } data-testid="country">
+                <div className={ Styles['country__flag_container'] }>
+                    <Flag 
+                        className={ Styles['country__flag'] }
+                        src={ country.flags.png }
+                        alt={ `flag of ${ country.name.common }` } 
+                        isView={ isView }
+                    />
                 </div>
-                <div className={ Styles["country__info_line"] }>
-                    <span className={ Styles['country__info'] }>region: </span>
-                    <span className={ Styles['country__data'] }>{ region }</span>
+                <div className={ Styles['country__description'] }>
+                    <h2 className={ Styles['country__name'] }>{ country.name.common }</h2>
+                    <div className={ Styles["country__info_line"] }>
+                        <span className={ Styles['country__info'] }>population: </span>
+                        <span className={ Styles['country__data'] }>{ country.population }</span>
+                    </div>
+                    <div className={ Styles["country__info_line"] }>
+                        <span className={ Styles['country__info'] }>region: </span>
+                        <span className={ Styles['country__data'] }>{ country.region }</span>
+                    </div>
+                    <div className={ Styles["country__info_line"] }>
+                        <span className={ Styles['country__info'] }>capital: </span>
+                        <span className={ Styles['country__data'] }>{ country.capital ? country.capital[0] : 'none'}</span>
+                    </div>
                 </div>
-                <div className={ Styles["country__info_line"] }>
-                    <span className={ Styles['country__info'] }>capital: </span>
-                    <span className={ Styles['country__data'] }>{ capital }</span>
-                </div>
-            </div>
-        </li>
+            </li>
+        </Link>
     )
+
 }

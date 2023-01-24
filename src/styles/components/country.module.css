@@ -35,15 +35,18 @@
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
-    margin-bottom: 2rem;;
+    margin-bottom: 2rem;
+    color: var(--text-clr);
 }
 
 .country__info {
     font-weight: 600;
     text-transform: capitalize;
+    color: var(--text-clr);
 }
 
 .country__data {
     font-weight: 300;
     text-transform: capitalize;
+    color: var(--text-clr);
 }
