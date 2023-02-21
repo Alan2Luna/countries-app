@@ -1,24 +1,35 @@
-import { useState, ChangeEvent, useContext } from 'react'
+import { useState, ChangeEvent, createContext } from 'react'
 import { Select } from './Select'
-import { Option } from './Option'
-import { DispatchersContext } from '../../context/countries/CountriesContext';
 
 type Props = {
     options: string[];
-    initialValue: string;
+    value?: string;
     title: string;
+    onChange: (x: string) => void;
 }
 
-export function Filter({ options, initialValue, title }: Props) {
+type State = {
+    title: string;
+    state: string;
+    options?: string[];
+    isOpen: boolean;
 
-    const [ value, setValue ] = useState( initialValue )
+    handleToggle: () => void;
+    handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const FilterContext = createContext<State>({} as State)
+
+export function Filter({ options, title, value, onChange }: Props) {
+
+    const [ state, setState ] = useState( value || '')
     const [ isOpen, setIsOpen ] = useState(false)
-    const { dispatchFilterByRegion } = useContext( DispatchersContext )
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue( e.target.value )
-        setIsOpen( false )
-        dispatchFilterByRegion( e.target.value == 'All' ? '' : e.target.value )
+        const value = e.target.value == 'All' ? '' : e.target.value
+        setIsOpen(false)
+        setState(value)
+        onChange(value)
     }
 
     const handleToggle = () => {
@@ -26,17 +37,12 @@ export function Filter({ options, initialValue, title }: Props) {
     }
 
     return(
-        <Select 
-            value={ value }
-            initialValue={ initialValue }
-            title={ title }
-            isOpen={ isOpen }
-            handleToggle={ handleToggle }
-        >
-            {
-                options.map( option => <Option key={ option }  handleChange={handleChange} option={ option } /> )
-            }
-
-        </Select>
+        <FilterContext.Provider value={{
+            title, isOpen, state, options,
+            handleToggle,
+            handleChange
+            }}>
+            <Select />
+        </FilterContext.Provider>
     )
 }

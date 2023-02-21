@@ -1,25 +1,20 @@
 import { useRef } from 'react'
 import { Flag } from './Flag';
 import { Country as ICountry } from '../interfaces/Country';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 import { Link } from "react-router-dom"
 
 import Styles from '../styles/components/country.module.css'
 
 export function Country(country: ICountry) {
-
-    const elementRoot = useRef<HTMLLIElement | null>(null)
-    const isView = useIntersectionObserver( elementRoot )
     
     return(
         <Link to={`/${country.name.common}`}>
-            <li ref={ elementRoot } className={ Styles.country } data-testid="country">
+            <li className={ Styles.country } data-testid="country">
                 <div className={ Styles['country__flag_container'] }>
                     <Flag 
                         className={ Styles['country__flag'] }
                         src={ country.flags.png }
                         alt={ `flag of ${ country.name.common }` } 
-                        isView={ isView }
                     />
                 </div>
                 <div className={ Styles['country__description'] }>

@@ -1,12 +1,15 @@
-import { ChangeEvent } from 'react'
+import { useContext } from 'react'
+import { FilterContext } from './Index';
+
 import Styles from '../../styles/components/filter/option.module.css'
 
 type Props = {
     option: string; 
-    handleChange: (e: ChangeEvent<HTMLInputElement>) => void; 
 }
 
-export function Option({ option, handleChange }: Props) {
+export function Option({ option }: Props) {
+    const { handleChange } = useContext( FilterContext )
+
     return(
         <label htmlFor={ option } className={ Styles.option }>
             <input 

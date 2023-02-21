@@ -68,9 +68,14 @@ function CountryDetailsPage() {
                             <li className={ Styles["country-details__item"] }>
                                 Languages:
                                 {
-                                    Object.values(countryDetail!.languages).map(language => (
-                                        <span key={language}> {language},</span>
-                                    ))
+                                    Object.values(countryDetail!.languages).map((language, index) => {
+                                        
+                                        if(Object.values(countryDetail!.languages).length === (index + 1)) {
+                                            return(<span key={language}> {language}</span>)
+                                        }
+
+                                        return(<span key={language}> {language},</span>)
+                                    })
                                 }
                             </li>
                         </ul>
@@ -81,16 +86,22 @@ function CountryDetailsPage() {
                                     ? (
                                         <ul className={ Styles["country-details__border-list"] }>
                                             {
-                                                countryDetail.borders.map(border => (
-                                                    <li 
-                                                        className={ Styles["country-details__border"] }
-                                                        key={border}
-                                                    >
-                                                        { border }
-                                                    </li>
-                                                )
-                                            )}
-                                        </ul>)
+                                                countryDetail.borders.map( border => {
+
+                                                    const indexOfCountry = Object.keys(COUNTRY_CODES).indexOf(border)
+
+                                                    return(
+                                                        <li 
+                                                            className={ Styles["country-details__border"] }
+                                                            key={border}
+                                                        >
+                                                            {Object.entries(COUNTRY_CODES)[indexOfCountry][1]}
+                                                        </li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                    )
                                     : <span className={Styles["country-details__item-error"]}>Not available</span>
                             }
                         </div>

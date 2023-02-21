@@ -14,9 +14,9 @@ export function countriesReducer( state: State, action: CountriesActions): State
         case 'getAll':
             return {
                 ...state,
+                isLoading: false,
                 countries: action.payload,
-                toShow: action.payload,
-                isLoading: false
+                toShow: action.payload
             }
 
         case 'filteredByName': {
@@ -27,7 +27,7 @@ export function countriesReducer( state: State, action: CountriesActions): State
                 return {
                     ...state,
                     filteredByName: '',
-                    toShow: countries.filter( country => country.region.toLowerCase().includes( filteredByRegion))
+                    toShow: countries.filter( country => country.region.toLowerCase().includes( filteredByRegion.toLocaleLowerCase() ))
                 }
             }
 
@@ -45,7 +45,7 @@ export function countriesReducer( state: State, action: CountriesActions): State
                     filteredByName: action.payload.toLowerCase(),
                     toShow: countries
                         .filter( country => country.name.common.toLowerCase().includes( action.payload.toLowerCase()) )
-                        .filter( country => country.region.toLowerCase().includes( filteredByRegion))
+                        .filter( country => country.region.toLowerCase().includes( filteredByRegion.toLocaleLowerCase() ))
                 }
             }
 
@@ -63,7 +63,7 @@ export function countriesReducer( state: State, action: CountriesActions): State
             if( action.payload && !filteredByName ) {
                 return {
                     ...state,
-                    filteredByRegion: action.payload.toLowerCase(),
+                    filteredByRegion: action.payload,
                     toShow: countries.filter( country => country.region.toLowerCase().includes( action.payload.toLowerCase()) )
                 }
             }
@@ -79,7 +79,7 @@ export function countriesReducer( state: State, action: CountriesActions): State
             if( action.payload && filteredByName ) {
                 return {
                     ...state,
-                    filteredByRegion: action.payload.toLowerCase(),
+                    filteredByRegion: action.payload,
                     toShow: countries
                         .filter( country => country.name.common.toLowerCase().includes( filteredByName) )
                         .filter( country => country.region.toLowerCase().includes( action.payload.toLowerCase() ))
