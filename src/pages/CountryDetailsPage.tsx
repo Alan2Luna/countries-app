@@ -36,7 +36,8 @@ function CountryDetailsPage() {
                     <div className={ Styles["country-details__list-container"] }>
                         <ul className={ Styles["country-details__list"] }>
                             <li className={ Styles["country-details__item"] }>
-                                Native name: <span>{ Object.values(countryDetail!.name.nativeName)[0].common}
+                                Native name: <span>
+                                    { Object.values(countryDetail!.name.nativeName)[0].common }
                                 </span>
                             </li>
                             <li className={ Styles["country-details__item"] }>
