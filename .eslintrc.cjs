@@ -13,7 +13,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'eslint-plugin-jest-dom',
-    'eslint-plugin-testing-library'
+    'eslint-plugin-testing-library',
     'standard',
     'eslint-config-prettier' // preoridad a prettier
   ],
